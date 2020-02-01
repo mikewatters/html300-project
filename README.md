@@ -7,7 +7,7 @@ At my workplace, we have a website for telling our customers' success stories.
 When we put together the website a few years ago, we didn't have many
 development resources available, so we hastily threw it together using an
 existing template from another part of the website. The template is kind of
-boring, and it has some CSS and user experience issues, especially on mobile. 
+boring, and it has some CSS and user experience issues, especially on mobile.
 There are also some features we would like to be able to integrate, particularly
 on pages that incorporate a video.
 
@@ -16,6 +16,14 @@ demonstrates one way it could be designed. I am inspired by modern storytelling
 websites like [The Outline](https://theoutline.com/) for this project, although
 the brand requirements of my workplace might require this site to be a bit
 cleaner and simpler.
+
+# Topic
+
+Customer success stories for an insurance company
+
+# Reason
+
+To improve the user experience of an existing site and improve features
 
 # Website title
 
