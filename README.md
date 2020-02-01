@@ -3,13 +3,13 @@
 
 # Proof of concept for stories website
 
-At my workplace, we have a website for telling our customers' stories. When we
-put together the website a few years ago, we didn't have many development
-resources available, so we hastily threw it together using an existing template
-from another part of the website. The template is kind of boring, and it has
-some CSS and user experience issues, especially on mobile. There are also some
-features we would like to be able to integrate, particularly on pages that
-incorporate a video.
+At my workplace, we have a website for telling our customers' success stories.
+When we put together the website a few years ago, we didn't have many
+development resources available, so we hastily threw it together using an
+existing template from another part of the website. The template is kind of
+boring, and it has some CSS and user experience issues, especially on mobile. 
+There are also some features we would like to be able to integrate, particularly
+on pages that incorporate a video.
 
 For my project, I would like to develop a proof of concept for the website that
 demonstrates one way it could be designed. I am inspired by modern storytelling
