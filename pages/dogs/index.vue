@@ -45,8 +45,6 @@ export default {
     <card v-for="card in cards" :img="card.url" :card="card" :key="card.id">
     </card>
   </section>
-
-</section>
 </main>
 </template>
 

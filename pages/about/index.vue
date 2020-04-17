@@ -18,7 +18,6 @@
       </b-collapse>
     </b-card>
   </div>
-</div>
 </section>
 </main>
 </template>
