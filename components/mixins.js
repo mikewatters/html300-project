@@ -14,8 +14,11 @@ export default {
     },
     myMethod() {
       console.log("and this is working");
-      var element = document.getElementById("black-border");
-      element.classList.toggle("red-border");
+      var element = document.querySelectorAll(".card");
+      console.log(element)
+      element.forEach(function(e) {
+        e.classList.toggle("red-border");
+      })
     }
   }
 }

@@ -37,6 +37,9 @@ export default {
   <h1>These are a few of my favorite cats</h1>
   <!-- Image content goes here -->
   <p>I'm calling The Cat API for nine incredible cats!</p>
+      <b-button v-if="myVal" @click="myMethod()" class="btn-success" v-b-popover.hover.top="'Make these cats go hmmm.'" title="Do it now">
+      Click me to make the cats bigger
+    </b-button>
   <section class="card-columns" v-if="cards">
     <card v-for="card in cards" :img="card.url" :card="card" :key="card.id">
     </card>
@@ -49,15 +52,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.black-border {
-  border: 0.5rem solid #444;
-}
-
-.card img {
+.card {
 width: 100%;
 }
 .red-border {
   border: 0.5rem solid #d9534f;
-  width: 50%;
 }
 </style>
