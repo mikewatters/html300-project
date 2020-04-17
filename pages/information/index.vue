@@ -7,14 +7,14 @@
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
     aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   <!-- Accordion -->
-     <div v-for="item in items" role="tablist">
+     <div v-for="item in items" role="tablist" :key="item.id">
     <b-card no-body class="mb-1">
       <b-card-header header-tag="header" class="p-1" role="tab">
-        <b-button block href="#" v-b-toggle.accordion-1 variant="light">
+        <b-button block href="#" :v-b-toggle.item.id variant="light">
         {{ item.heading }}
         </b-button>
       </b-card-header>
-      <b-collapse id="accordion-1" visible accordion="my-accordion" role="tabpanel">
+      <b-collapse :id="accordion-1" visible accordion="my-accordion" role="tabpanel">
         <b-card-body>
           <b-card-text>{{ item.body }}</b-card-text>
         </b-card-body>
