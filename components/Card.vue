@@ -15,12 +15,16 @@ export default {
 <template>
 <!-- Cat image cards -->
 <!-- Cat image cards -->
-<div class="card bg-light text-white">
-  <img :src="card.url" class="card-img" :alt="card.alt">
+<div class="card">
+<b-card-img-lazy :src="card.url"></b-card-img-lazy>
 </div>
 
 </template>
 
-<style scoped>
+<style>
+.red-border {
+    border: 3px solid #6c757d;
+    box-shadow: 3px 3px 6px #6c757d;
 
+}
 </style>

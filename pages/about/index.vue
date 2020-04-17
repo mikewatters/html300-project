@@ -2,77 +2,53 @@
 <!-- Featured content -->
 <main class="main">
   <!-- Grids -->
-  <div class="row">
-    <div class="col-sm-8">
-      <div v-for="item in items">
-        <h1>{{ item.title }}</h1>
-      </div>
-      <div v-for="image in images">
-        <img :src="image.src" :alt="image.alt" class="float-right" />
-      </div>
-      <div v-for="item in items">
-        <p>{{ item.paragraph }}</p>
-      </div>
-    </div>
-    <div class="col-sm-4">
-      <div v-for="sidebar in sidebars">
-        <h2>{{ sidebar.title }}</h2>
-        <p><small>{{ sidebar.paragraph }}</small></p>
-      </div>
-      <div v-for="sideimage in sideimages">
-        <img :src="sideimage.src" :alt="sideimage.alt" class="img-fluid" />
-      </div>
-    </div>
+        <h1>All the cat breeds</h1>
+<section v-for="breed in breeds">
+  <div role="tablist">
+    <b-card no-body class="mb-1">
+      <b-card-header header-tag="header" class="p-1" role="tab">
+        <b-button block href="#" v-b-toggle.accordion-1 variant="light">{{breed.name}}</b-button>
+      </b-card-header>
+      <b-collapse id="accordion-1" visible accordion="my-accordion" role="tabpanel">
+        <b-card-body>
+          <b-card-text><p>{{ breed.description }}</p>
+          <p><strong>Lifespan:</strong> {{ breed.life_span }} years</p>
+        <p><strong>Temperament:</strong> {{breed.temperament}}</p></b-card-text>
+        </b-card-body>
+      </b-collapse>
+    </b-card>
   </div>
-  </div>
+</div>
+</section>
 </main>
 </template>
 
 <script>
-const image1 = require('../../assets/cats6.jpg');
-const image2 = require('../../assets/cats7.jpg');
+import axios from 'axios'
 
+// Image data
+// The Cat API. Details and documentation here: https://thecatapi.com/
 export default {
-  el: '#grid',
-  data() {
-    return {
-      images: [{
-        src: image1,
-        alt: 'orange cat with glasses'
-      }],
-      sideimages: [{
-        src: image2,
-        alt: 'calico cat standing'
-      }],
-      items: [{
-          title: "More about cats"
-        },
-        {
-          paragraph: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate quasi, voluptatibus quae veniam ab, quia, rerum, magnam consectetur nam placeat eum maiores. Rerum earum delectus doloribus qui ab accusantium accusamus."
-        },
-        {
-          paragraph: "Para 2. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate quasi, voluptatibus quae veniam ab, quia, rerum, magnam consectetur nam placeat eum maiores. Rerum earum delectus doloribus qui ab accusantium accusamus."
-        },
-        {
-          paragraph: "Para 3. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate quasi, voluptatibus quae veniam ab, quia, rerum, magnam consectetur nam placeat eum maiores. Rerum earum delectus doloribus qui ab accusantium accusamus."
-        },
-        {
-          paragraph: "Para 4. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate quasi, voluptatibus quae veniam ab, quia, rerum, magnam consectetur nam placeat eum maiores. Rerum earum delectus doloribus qui ab accusantium accusamus."
-        },
-      ],
-      sidebars: [{
-          title: "Sidebar about cats"
-        },
-        {
-          paragraph: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem eum voluptatum, delectus officia, consectetur quos expedita nesciunt blanditiis dignissimos reprehenderit accusamus quaerat quas rerum illo maxime dolores fuga amet fugit! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur praesentium maiores nihil reiciendis, porro delectus ea sed vitae veritatis nemo ex nisi doloremque, perferendis! Recusandae harum dolorum consectetur, et odio?"
-        },
-        {
-          paragraph: "Para 2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem eum voluptatum, delectus officia, consectetur quos expedita nesciunt blanditiis dignissimos reprehenderit accusamus quaerat quas rerum illo maxime dolores fuga amet fugit! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur praesentium maiores nihil reiciendis, porro delectus ea sed vitae veritatis nemo ex nisi doloremque, perferendis! Recusandae harum dolorum consectetur, et odio?"
-        },
-      ]
+  data(){
+      return {
+        breeds: [],
+        errorMessage: undefined
+      }
+    },
+    mounted(){
+      axios.defaults.headers.common['x-api-key'] = "2e1a8e1f-3753-4843-b235-aaf530ab2a66"
+      axios
+        .get('https://api.thecatapi.com/v1/breeds')
+        .then(response => {
+          this.breeds = response.data
+          console.log(response.data)
+        })
+        .catch(err=>{
+          console.error('oops an error: ', err)
+          this.errorMessage = "Oops, an error occurred!"
+        })
     }
   }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
