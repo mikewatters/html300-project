@@ -1,27 +1,23 @@
 <template>
 
-    <!-- Featured content -->
-    <main class="main">
-
-
-        <div v-for="feature in features">
-  <b-card
-    overlay
-    :img-src="feature.image"
-    :alt="feature.alt"
-    text-variant="white"
-    :title="feature.title">
-    <b-card-text>
-      {{ feature.intro }}
-    </b-card-text>
-    <b-button pill variant="danger">
-      More
-    </b-button>
-  </b-card>
-</div>
- 
-    </main>
-
+  <!-- Featured content -->
+  <main class="main">
+  <div v-for="feature in features" :key="feature.id">
+    <b-card
+      overlay
+      :img-src="feature.image"
+      :alt="feature.alt"
+      text-variant="white"
+      :title="feature.title">
+      <b-card-text>
+        {{ feature.intro }}
+      </b-card-text>
+      <b-button pill variant="danger">
+        More
+      </b-button>
+    </b-card>
+  </div>
+</main>
 </template>
 
 <script>

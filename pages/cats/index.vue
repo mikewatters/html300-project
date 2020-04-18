@@ -1,6 +1,6 @@
 <script>
-import Card from '@/components/card.vue';
-import mixins from '@/components/mixins.js';
+import Card from '~/components/card.vue';
+import mixins from '~/components/mixins.js';
 import axios from 'axios'
 
 // Image data
