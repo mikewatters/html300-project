@@ -1,24 +1,23 @@
 <template>
 <!-- Featured content -->
 <main class="main">
-  <!-- Grids -->
+  <!-- Accordion for the cat breeds -->
         <h1>All the cat breeds</h1>
-<section v-for="breed in breeds">
+<section v-for="breed in breeds" :key="breed.id">
   <div role="tablist">
     <b-card no-body class="mb-1">
       <b-card-header header-tag="header" class="p-1" role="tab">
-        <b-button block href="#" v-b-toggle="'accordion-'+breed.id" variant="light">{{breed.name}}</b-button>
+        <b-button block href="#" v-b-toggle="'accordion-'+breed.id" variant="light">{{breed.name}} <span class="transparently">😺</span></b-button>
       </b-card-header>
       <b-collapse :id="'accordion-'+breed.id" accordion="my-accordion" role="tabpanel">
         <b-card-body>
-          <b-card-text><p>{{ breed.description }}</p>
-          <p><strong>Lifespan:</strong> {{ breed.life_span }} years</p>
-        <p><strong>Temperament:</strong> {{breed.temperament}}</p></b-card-text>
+          <b-card-text><h5>{{ breed.description }}</h5></b-card-text>
+          <b-button class="info-button" pill variant="dark">&nbsp;{{ breed.life_span }} years&nbsp;</b-button>
+          <b-button pill class="info-button" variant="info">&nbsp;{{breed.temperament}}&nbsp;</b-button>
         </b-card-body>
       </b-collapse>
     </b-card>
   </div>
-</div>
 </section>
 </main>
 </template>
@@ -47,11 +46,29 @@ export default {
           console.error('oops an error: ', err)
           this.errorMessage = "Oops, an error occurred!"
         })
+    },
+// Metadata
+    head () {
+      return {
+        title: 'Cat breeds',
+        meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        { hid: 'All the cat breeds', name: 'Cat breeds', content: 'Check out this listing of all the cat breeds' }
+      ]
     }
-  }
+    }
+}
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+.info-button {
+  margin: .25rem;
+}
+
+.transparently {
+  opacity: 0.25;
+  float: left;
+}
 
 </style>

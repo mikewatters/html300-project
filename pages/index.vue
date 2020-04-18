@@ -2,15 +2,24 @@
 
     <!-- Featured content -->
     <main class="main">
-      <div v-for="feature in features" class="jumbotron jumbotron-fluid">
-        <div class="container">
-        <img :src="feature.image" class="img-fluid" :alt="feature.alt">
-          <h1 class="display-4">{{feature.title}}</h1>
-          <p class="lead">{{feature.intro}}</p>
-          <hr class="my-4">
-          <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-        </div>
-      </div>
+
+
+        <div v-for="feature in features">
+  <b-card
+    overlay
+    :img-src="feature.image"
+    :alt="feature.alt"
+    text-variant="white"
+    :title="feature.title">
+    <b-card-text>
+      {{ feature.intro }}
+    </b-card-text>
+    <b-button pill variant="danger">
+      More
+    </b-button>
+  </b-card>
+</div>
+ 
     </main>
 
 </template>
@@ -34,7 +43,6 @@ data () {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 
 
 </style>

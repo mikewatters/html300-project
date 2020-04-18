@@ -7,7 +7,7 @@
   <strong>{{ message | makeUppercase }}</strong>
   </b-alert>
 </div>
-<!-- Main navigation -->
+<!-- Logo and main navigation -->
 <header>
 <div>
   <b-navbar toggleable="lg" type="dark" variant="dark">

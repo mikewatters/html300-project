@@ -13,18 +13,26 @@ export default {
 </script>
 
 <template>
-<!-- Cat image cards -->
-<!-- Cat image cards -->
-<div class="card">
-<b-card-img-lazy :src="card.url"></b-card-img-lazy>
-</div>
-
+<!-- Image cards -->
+    <div class="box" :id="'box'+card.id">
+       <b-img-lazy :src="card.url" :title="card.id"></b-img-lazy>
+    </div>
 </template>
 
 <style>
-.red-border {
-    border: 3px solid #6c757d;
-    box-shadow: 3px 3px 6px #6c757d;
-
+.box {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+.box img {
+  object-fit: cover;
+  width: 100%
+}
+.box-effect {
+  -webkit-filter: saturate(8);
+  filter: saturate(8);
 }
 </style>

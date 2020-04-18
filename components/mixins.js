@@ -1,6 +1,5 @@
 export default {
   created: function() {
-    console.log('this is working')
   },
   data() {
     return {
@@ -12,13 +11,19 @@ export default {
     toggleShowHide() {
       this.isHidden = !this.isHidden;
     },
-    myMethod() {
-      console.log("and this is working");
-      var element = document.querySelectorAll(".card");
+// Make the cats and dogs glow
+    glowMethod() {
+      var element = document.querySelectorAll(".box");
       console.log(element)
       element.forEach(function(e) {
-        e.classList.toggle("red-border");
+        e.classList.toggle("box-effect");
       })
+    },
+// Reload the page for more cats and dogs
+    reloadMethod() {
+      console.log('this is loading')
+      location.reload();
     }
+
   }
 }
