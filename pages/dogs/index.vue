@@ -19,7 +19,7 @@ export default {
     mounted(){
       axios.defaults.headers.common['x-api-key'] = "151c477d-020a-437e-9f7b-b7d06c7eff38"
       axios
-        .get('https://api.thedogapi.com/v1/images/search', { params: { limit:9, size:"thumb" } } )
+        .get('https://api.thedogapi.com/v1/images/search', { params: { limit:33, size:"thumb" } } )
         .then(response => {
           this.cards = response.data
         })
@@ -36,8 +36,11 @@ export default {
   <p v-if="errorMessage">{{errorMessage}}</p>
   <h1>These are a few of my favorite dogs</h1>
   <!-- Image content goes here -->
-  <p>I'm calling The Dog API for nine incredible dogs!</p>
-
+  <p>I'm calling The Dog API for 33 dogs!</p>
+      <b-button v-if="myVal" @click="myMethod()" class="btn-success">
+      Click me to put a border on the dogs
+    </b-button>
+    <p>&nbsp;</p>
   <section class="card-columns" v-if="cards">
     <card v-for="card in cards" :img="card.url" :card="card" :key="card.id">
     </card>
