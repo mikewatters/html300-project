@@ -14,8 +14,10 @@ export default {
 
 <template>
 <!-- Image cards -->
+    <div class="card" id="card">
     <div class="box" :id="'box'+card.id">
        <b-img-lazy :src="card.url" :title="card.id"></b-img-lazy>
+    </div>
     </div>
 </template>
 
