@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import Banner from '~/components/Banner.vue';
+import Banner from '../components/Banner.vue';
 
 export default {
   name: 'App',
