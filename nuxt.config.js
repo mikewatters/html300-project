@@ -9,7 +9,7 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'A website about cats', name: 'Mostly cats and a few dogs', content: 'Check out the cat breeds, cat pics, and dog pics too' }
+      { hid: 'Base', name: 'Mostly cats and a few dogs', content: 'Check out the cat breeds, cat pics, and dog pics too' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }

@@ -51,16 +51,16 @@ export default {
 
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Baloo+Thambi+2&family=Flavors&display=swap');
 #app {
-  font-family: 'Baloo Thambi 2', cursive;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1.1rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   }
 .logo {
-font-family: 'Flavors', cursive;
+font-family: Georgia, 'Times New Roman', serif;
 font-size: 4rem;
+font-style: italic;
 }
 .btn {
 font-size: 1.25rem;

@@ -53,7 +53,7 @@ export default {
         title: 'Cat breeds',
         meta: [
         // hid is used as unique identifier. Do not use `vmid` for it as it will not work
-        { hid: 'All the cat breeds', name: 'Cat breeds', content: 'Check out this listing of all the cat breeds' }
+       { hid: 'About', name: 'Cat breeds', content: 'Check out this listing of all the cat breeds' }
       ]
     }
     }
